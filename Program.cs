@@ -13,7 +13,7 @@ namespace ADO.NetSQLConnection_01
             SqlConnection connection = new SqlConnection(ADONetTestDBConnectionString);
 
             connection.Open();
-            SqlCommand cmd = new SqlCommand("INSERT INTO Person ");
+            SqlCommand cmd = new SqlCommand("INSERT INTO Person (FirstName , LastName , Age) Values('Amin' ,'Ghasemi',20 ");
 
 
 
