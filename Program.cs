@@ -8,12 +8,18 @@ namespace ADO.NetSQLConnection_01
     {
         static void Main(string[] args)
         {
-            string ADONetTestDBConnectionString = "Data Source=.;Initial Catalog=ado.NetTestDB;User ID=sa;Encrypt=False";
-
-            SqlConnection connection = new SqlConnection(ADONetTestDBConnectionString);
+            string ADONetTestDBConnectionString = "Data Source=.; User ID=sa; Password=amin5123; TrustServerCertificate=True; Encrypt=false;";
+            //add CatalogeName
+            var connection = new SqlConnection(ADONetTestDBConnectionString);
 
             connection.Open();
-            SqlCommand cmd = new SqlCommand("INSERT INTO Person (FirstName , LastName , Age) Values('Amin' ,'Ghasemi',20 ");
+            var cmd = new SqlCommand(
+                """
+                INSERT INTO Person 
+                    (FirstName, LastName, Age) 
+                VALUES 
+                    ('Amin', 'Ghasemi', 20)
+                """);
             connection.Close();
 
         }
