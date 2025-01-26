@@ -8,11 +8,12 @@ namespace ADO.NetSQLConnection_01
     {
         static void Main(string[] args)
         {
-            string ADONetTestDBConnectionString = 
+            string ADONetTestDBConnectionString =
                 """
-            Server=.;DataBase=DotNetTestDB;
-                User Id=sa;Password=amin5123;
-            TrustServerCertificate=true;Encrypt=false
+            Data Source=.;
+            Initial Catalog=DotNetTestDB;
+            User ID=sa;Password=amin5123;
+            Encrypt=False
             """;
             //add CatalogeName
             var connection = new SqlConnection(ADONetTestDBConnectionString);
