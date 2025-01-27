@@ -25,7 +25,9 @@ namespace ADO.NetSQLConnection_01
                     (FirstName, LastName, Age) 
                 VALUES 
                     ('Amin', 'Ghasemi', 20)
-                """);
+                """, connection);
+            //var selectQuery = "SELECT * FROM Person";
+            //SqlCommand command = new SqlCommand(selectQuery);
             connection.Close();
 
         }
