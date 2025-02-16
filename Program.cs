@@ -19,7 +19,7 @@ namespace ADO.NetSQLConnection_01
             var connection = new SqlConnection(ADONetTestDBConnectionString);
 
             connection.Open();
-            
+
             /*
             var cmdInsert = new SqlCommand(
                 """
@@ -31,9 +31,23 @@ namespace ADO.NetSQLConnection_01
             var rowsAffected = cmdInsert.ExecuteNonQuery();
             Console.WriteLine(rowsAffected);
             */
+
             //ExecuteNonQuery() returns the number of rows affected by the command
             //And send the command to the database.
-            
+
+            var cmdSelect = new SqlCommand(
+                """
+                SELECT * FROM Person
+                """, connection);
+            var reader = cmdSelect.ExecuteReader();
+            while (reader.Read())
+            {
+                Console.WriteLine(reader["FirstName"]);
+                Console.WriteLine(reader["LastName"]);
+                Console.WriteLine(reader["Age"]);
+            }
+
+            /*
             var cmdDel = new SqlCommand(
                 """
                 DELETE FROM Person
@@ -41,6 +55,7 @@ namespace ADO.NetSQLConnection_01
                 """, connection);
             var rowsAffected = cmdDel.ExecuteNonQuery();
             Console.WriteLine(rowsAffected);
+            */
             //cmdDel added in case you need to delete inserted data.
 
             connection.Close();
