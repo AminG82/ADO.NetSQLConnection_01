@@ -6,7 +6,7 @@ namespace ADO.NetSQLConnection_01
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main(string[] args) 
         {
             string ADONetTestDBConnectionString =
                 """
