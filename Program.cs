@@ -19,17 +19,30 @@ namespace ADO.NetSQLConnection_01
             var connection = new SqlConnection(ADONetTestDBConnectionString);
 
             connection.Open();
-            var cmd = new SqlCommand(
+            
+            /*
+            var cmdInsert = new SqlCommand(
                 """
                 INSERT INTO Person 
                     (FirstName, LastName, Age) 
                 VALUES 
                     ('Amin', 'Ghasemi', 20)
                 """, connection);
-            var rowsAffected = cmd.ExecuteNonQuery();
+            var rowsAffected = cmdInsert.ExecuteNonQuery();
             Console.WriteLine(rowsAffected);
+            */
             //ExecuteNonQuery() returns the number of rows affected by the command
             //And send the command to the database.
+            
+            var cmdDel = new SqlCommand(
+                """
+                DELETE FROM Person
+                WHERE FirstName = 'Amin'
+                """, connection);
+            var rowsAffected = cmdDel.ExecuteNonQuery();
+            Console.WriteLine(rowsAffected);
+            //cmdDel added in case you need to delete inserted data.
+
             connection.Close();
 
         }
