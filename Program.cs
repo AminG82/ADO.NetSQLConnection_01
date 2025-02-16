@@ -26,8 +26,10 @@ namespace ADO.NetSQLConnection_01
                 VALUES 
                     ('Amin', 'Ghasemi', 20)
                 """, connection);
-            //var selectQuery = "SELECT * FROM Person";
-            //SqlCommand command = new SqlCommand(selectQuery);
+            var rowsAffected = cmd.ExecuteNonQuery();
+            Console.WriteLine(rowsAffected);
+            //ExecuteNonQuery() returns the number of rows affected by the command
+            //And send the command to the database.
             connection.Close();
 
         }
